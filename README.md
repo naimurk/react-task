@@ -29,7 +29,7 @@ First, clone the repository to your local machine using the following command:
 git clone https://github.com/naimurk/react-task.git
 
 
-cd perf-filter-system
+cd react-task
 
 
  npm install
