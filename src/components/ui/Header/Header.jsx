@@ -5,9 +5,9 @@ const Header = ({ isScrolled }) => {
   return (
     <header id="home" className="relative h-screen bg-slideshow">
       <nav
-        data-aos="fade-down"
-        data-aos-easing="linear"
-        data-aos-duration="1500"
+        // data-aos="fade-down"
+        // data-aos-easing="linear"
+        // data-aos-duration="1500"
         id="navbar-2"
         className={`w-full bg-transparent shadow fixed top-0 z-50 ${
           isScrolled === false ? "" : "hidden"

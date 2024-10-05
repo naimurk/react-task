@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "../../components/ui/Header/Header";
 import Navbar from "../../components/ui/Navbar/Navbar";
+import Service from "./Service";
 
 const Home = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,9 +28,7 @@ const Home = () => {
       {/* <h1>navbar</h1> */}
       {isScrolled && <Navbar></Navbar>}
       <Header isScrolled={isScrolled}></Header>
-      <div className="min-h-screen">
-        <h1>d</h1>
-      </div>
+      <Service></Service>
     </>
   );
 };
