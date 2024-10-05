@@ -5,12 +5,12 @@ const Navbar = () => {
   const [toggle, setIsToggle] = useState(false);
 
   // React Spring animation for mobile menu
-  const menuAnimation = useSpring({
-    height: toggle ? "200px" : "0px", // Change height based on toggle state
-    opacity: toggle ? 1 : 0,          // Fade in and out
-    overflow: "hidden",               // Hide content when height is 0
-    config: { tension: 250, friction: 20 }, // Tuning the speed of animation
-  });
+  //   const menuAnimation = useSpring({
+  //     height: toggle ? "200px" : "0px", // Change height based on toggle state
+  //     opacity: toggle ? 1 : 0,          // Fade in and out
+  //     overflow: "hidden",               // Hide content when height is 0
+  //     config: { tension: 250, friction: 20 }, // Tuning the speed of animation
+  //   });
 
   return (
     <div>
@@ -84,7 +84,9 @@ const Navbar = () => {
         </div>
 
         {/* Animated mobile menu */}
-        <animated.div style={menuAnimation} className="lg:hidden bg-white py-4">
+        <div
+          className={`lg:hidden ${toggle ? "block" : "hidden"} bg-white py-4`}
+        >
           <a
             href="#home"
             className="block px-6 py-2 text-gray-700 hover:text-indigo-500 font-medium"
@@ -116,7 +118,7 @@ const Navbar = () => {
           >
             Get Quote
           </a>
-        </animated.div>
+        </div>
       </nav>
     </div>
   );
