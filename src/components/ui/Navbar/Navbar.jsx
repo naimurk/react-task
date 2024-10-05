@@ -5,9 +5,9 @@ const Navbar = () => {
   return (
     <div>
       <nav
-        // data-aos="fade-down"
-        // data-aos-easing="linear"
-        // data-aos-duration="1500"
+        data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1500"
         id="navbar-1"
         className="w-full  bg-white shadow fixed top-0 z-50"
       >

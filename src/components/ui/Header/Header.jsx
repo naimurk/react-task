@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 const Header = ({ isScrolled }) => {
+  const [toggle, setIsToggle] = useState(false);
   return (
     <header id="home" className="relative h-screen bg-slideshow">
       <nav
@@ -53,7 +56,11 @@ const Header = ({ isScrolled }) => {
           </div>
 
           <div className="lg:hidden">
-            <button id="menuBtn1" className="text-gray-300 focus:outline-none">
+            <button
+              onClick={() => setIsToggle(!toggle)}
+              id="menuBtn1"
+              className="text-gray-300 focus:outline-none"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -74,7 +81,9 @@ const Header = ({ isScrolled }) => {
 
         <div
           id="mobileMenu1"
-          className="lg:hidden hidden bg-white bg-opacity-20 backdrop-blur-2xl py-4 rounded-lg shadow-lg"
+          className={`lg:hidden ${
+            toggle ? "block" : "hidden"
+          } bg-white bg-opacity-20 backdrop-blur-2xl py-4 rounded-lg shadow-lg`}
         >
           <a
             href="#home"
@@ -148,3 +157,6 @@ const Header = ({ isScrolled }) => {
 };
 
 export default Header;
+Header.propTypes = {
+  isScrolled: Boolean,
+};
