@@ -1,13 +1,25 @@
 import { useState } from "react";
+import { useSpring, animated } from "@react-spring/web";
 
 const Header = ({ isScrolled }) => {
   const [toggle, setIsToggle] = useState(false);
+
+  // Defining animations for the header text and button
+  const headerAnimation = useSpring({
+    from: { opacity: 0, transform: "translateY(-50px)" },
+    to: { opacity: 1, transform: "translateY(0px)" },
+    config: { duration: 1000 },
+  });
+
+  const buttonAnimation = useSpring({
+    from: { opacity: 0, transform: "scale(0.8)" },
+    to: { opacity: 1, transform: "scale(1)" },
+    config: { duration: 800 },
+  });
+
   return (
     <header id="home" className="relative h-screen bg-slideshow">
       <nav
-        // data-aos="fade-down"
-        // data-aos-easing="linear"
-        // data-aos-duration="1500"
         id="navbar-2"
         className={`w-full bg-transparent shadow fixed top-0 z-50 ${
           isScrolled === false ? "" : "hidden"
@@ -48,7 +60,6 @@ const Header = ({ isScrolled }) => {
           <div className="hidden lg:block">
             <a
               href="#"
-              // onclick="openQuoteModal()"
               className="px-6 py-2 bg-indigo-500 text-white font-semibold rounded-full hover:bg-indigo-600 transition duration-300"
             >
               Get Quote
@@ -81,37 +92,22 @@ const Header = ({ isScrolled }) => {
 
         <div
           id="mobileMenu1"
-          className={`lg:hidden ${
-            toggle ? "block" : "hidden"
-          } bg-white bg-opacity-20 backdrop-blur-2xl py-4 rounded-lg shadow-lg`}
+          className={`lg:hidden ${toggle ? "block" : "hidden"} bg-white bg-opacity-20 backdrop-blur-2xl py-4 rounded-lg shadow-lg`}
         >
-          <a
-            href="#home"
-            className="block px-6 py-2 text-white hover:text-indigo-500 font-medium"
-          >
+          <a href="#home" className="block px-6 py-2 text-white hover:text-indigo-500 font-medium">
             Home
           </a>
-          <a
-            href="#"
-            className="block px-6 py-2 text-white hover:text-indigo-500 font-medium"
-          >
+          <a href="#" className="block px-6 py-2 text-white hover:text-indigo-500 font-medium">
             About
           </a>
-          <a
-            href="#services"
-            className="block px-6 py-2 text-white hover:text-indigo-500 font-medium"
-          >
+          <a href="#services" className="block px-6 py-2 text-white hover:text-indigo-500 font-medium">
             Services
           </a>
-          <a
-            href="#"
-            className="block px-6 py-2 text-white hover:text-indigo-500 font-medium"
-          >
+          <a href="#" className="block px-6 py-2 text-white hover:text-indigo-500 font-medium">
             Contact
           </a>
           <a
             href="#"
-            onClick="openQuoteModal()"
             className="block px-6 py-2 mt-4 bg-indigo-500 text-white text-center font-semibold rounded-full"
           >
             Get Quote
@@ -120,36 +116,31 @@ const Header = ({ isScrolled }) => {
       </nav>
 
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+
       <div className="relative z-10 flex items-center justify-start h-full px-6 lg:px-16 py-20 text-white max-w-7xl mx-auto">
         <div className="max-w-lg">
-          <h1
-            data-aos="fade-up"
-            data-aos-easing="linear"
-            data-aos-duration="1500"
+          <animated.h1
+            style={headerAnimation}
             className="text-4xl lg:text-6xl font-bold lg:ling-hight"
           >
             Swift and Secure Courier Services for Fast, Reliable Deliveries
-          </h1>
+          </animated.h1>
 
-          <p
-            data-aos="fade-up"
-            data-aos-easing="linear"
-            data-aos-duration="1500"
+          <animated.p
+            style={headerAnimation}
             className="mt-6 text-lg lg:text-xl"
           >
             We specialize in providing fast, safe, and reliable courier
             solutions for all your delivery needs, whether local or
             international.
-          </p>
-          <button
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="1500"
-            onClick="openQuoteModal()"
+          </animated.p>
+
+          <animated.button
+            style={buttonAnimation}
             className="mt-8 px-6 py-3 bg-indigo-500 text-white font-semibold rounded-md hover:bg-indigo-600"
           >
             Get Started
-          </button>
+          </animated.button>
         </div>
       </div>
     </header>
@@ -157,6 +148,3 @@ const Header = ({ isScrolled }) => {
 };
 
 export default Header;
-Header.propTypes = {
-  isScrolled: Boolean,
-};
