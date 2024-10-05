@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
 
-const Header = ({ isScrolled }) => {
+const Header = ({ isScrolled, handleModal }) => {
   const [toggle, setIsToggle] = useState(false);
 
   // Defining animations for the header text and button
@@ -60,6 +60,7 @@ const Header = ({ isScrolled }) => {
           <div className="hidden lg:block">
             <a
               href="#"
+              onClick={() => handleModal()}
               className="px-6 py-2 bg-indigo-500 text-white font-semibold rounded-full hover:bg-indigo-600 transition duration-300"
             >
               Get Quote
@@ -92,22 +93,37 @@ const Header = ({ isScrolled }) => {
 
         <div
           id="mobileMenu1"
-          className={`lg:hidden ${toggle ? "block" : "hidden"} bg-white bg-opacity-20 backdrop-blur-2xl py-4 rounded-lg shadow-lg`}
+          className={`lg:hidden ${
+            toggle ? "block" : "hidden"
+          } bg-white bg-opacity-20 backdrop-blur-2xl py-4 rounded-lg shadow-lg`}
         >
-          <a href="#home" className="block px-6 py-2 text-white hover:text-indigo-500 font-medium">
+          <a
+            href="#home"
+            className="block px-6 py-2 text-white hover:text-indigo-500 font-medium"
+          >
             Home
           </a>
-          <a href="#" className="block px-6 py-2 text-white hover:text-indigo-500 font-medium">
+          <a
+            href="#"
+            className="block px-6 py-2 text-white hover:text-indigo-500 font-medium"
+          >
             About
           </a>
-          <a href="#services" className="block px-6 py-2 text-white hover:text-indigo-500 font-medium">
+          <a
+            href="#services"
+            className="block px-6 py-2 text-white hover:text-indigo-500 font-medium"
+          >
             Services
           </a>
-          <a href="#" className="block px-6 py-2 text-white hover:text-indigo-500 font-medium">
+          <a
+            href="#"
+            className="block px-6 py-2 text-white hover:text-indigo-500 font-medium"
+          >
             Contact
           </a>
           <a
             href="#"
+            onClick={() => handleModal()}
             className="block px-6 py-2 mt-4 bg-indigo-500 text-white text-center font-semibold rounded-full"
           >
             Get Quote
@@ -136,6 +152,7 @@ const Header = ({ isScrolled }) => {
           </animated.p>
 
           <animated.button
+            onClick={() => handleModal()}
             style={buttonAnimation}
             className="mt-8 px-6 py-3 bg-indigo-500 text-white font-semibold rounded-md hover:bg-indigo-600"
           >

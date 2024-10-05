@@ -1,7 +1,7 @@
 import { useSpring, animated } from "@react-spring/web";
 import PropTypes from "prop-types";
 
-const ServiceCard = ({ item }) => {
+const ServiceCard = ({ item, handleModal }) => {
   // Animation for card fade-in and slide-up on render
   const cardAnimation = useSpring({
     from: { opacity: 0, transform: "translateY(20px)" },
@@ -20,10 +20,16 @@ const ServiceCard = ({ item }) => {
       style={{ ...cardAnimation, ...hoverStyle }} // Apply both entry animation and hover style
       className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300"
       onMouseEnter={() =>
-        setHoverStyle({ scale: 1.05, boxShadow: "0px 15px 30px rgba(0, 0, 0, 0.2)" })
+        setHoverStyle({
+          scale: 1.05,
+          boxShadow: "0px 15px 30px rgba(0, 0, 0, 0.2)",
+        })
       }
       onMouseLeave={() =>
-        setHoverStyle({ scale: 1, boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)" })
+        setHoverStyle({
+          scale: 1,
+          boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)",
+        })
       }
     >
       <img
@@ -34,7 +40,10 @@ const ServiceCard = ({ item }) => {
       <h3 className="text-xl font-semibold">{item?.title}</h3>
       <p className="mt-2 text-gray-600">{item?.description}</p>
       <div className="flex justify-end mt-4">
-        <span className="text-indigo-500 font-semibold cursor-pointer">
+        <span
+          onClick={() => handleModal()}
+          className="text-indigo-500 font-semibold cursor-pointer"
+        >
           Learn More →
         </span>
       </div>

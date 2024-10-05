@@ -1,6 +1,6 @@
 import ServiceCard from "../../components/ui/ServiceCard/ServiceCard";
 
-const Service = () => {
+const Service = ({handleModal}) => {
   const services = [
     {
       id: 1,
@@ -61,7 +61,7 @@ const Service = () => {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {services?.map((item) => (
-            <ServiceCard key={item.id} item={item}></ServiceCard>
+            <ServiceCard handleModal={handleModal} key={item.id} item={item}></ServiceCard>
           ))}
           {/* <!-- Service Card 1 -->
             <div

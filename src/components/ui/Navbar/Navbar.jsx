@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useSpring, animated } from "@react-spring/web";
 
-const Navbar = () => {
+const Navbar = ({ handleModal }) => {
   const [toggle, setIsToggle] = useState(false);
 
   // React Spring animation for mobile menu
@@ -51,7 +50,7 @@ const Navbar = () => {
           <div className="hidden lg:block">
             <a
               href="#"
-              onClick="openQuoteModal()"
+              onClick={() => handleModal()}
               className="px-6 py-2 bg-indigo-500 text-white font-semibold rounded-full hover:bg-indigo-600 transition duration-300"
             >
               Get Quote
@@ -113,7 +112,7 @@ const Navbar = () => {
           </a>
           <a
             href="#"
-            onClick="openQuoteModal()"
+            onClick={() => handleModal()}
             className="block px-6 py-2 mt-4 bg-indigo-500 text-white text-center font-semibold rounded-full"
           >
             Get Quote
