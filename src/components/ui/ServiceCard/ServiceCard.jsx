@@ -53,6 +53,7 @@ const ServiceCard = ({ item, handleModal }) => {
 
 ServiceCard.propTypes = {
   item: PropTypes.object.isRequired,
+  handleModal: PropTypes.func.isRequired,
 };
 
 export default ServiceCard;

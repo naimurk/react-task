@@ -1,6 +1,7 @@
 import ServiceCard from "../../components/ui/ServiceCard/ServiceCard";
+import PropTypes from "prop-types";
 
-const Service = ({handleModal}) => {
+const Service = ({ handleModal }) => {
   const services = [
     {
       id: 1,
@@ -61,7 +62,11 @@ const Service = ({handleModal}) => {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {services?.map((item) => (
-            <ServiceCard handleModal={handleModal} key={item.id} item={item}></ServiceCard>
+            <ServiceCard
+              handleModal={handleModal}
+              key={item.id}
+              item={item}
+            ></ServiceCard>
           ))}
           {/* <!-- Service Card 1 -->
             <div
@@ -169,3 +174,7 @@ const Service = ({handleModal}) => {
 };
 
 export default Service;
+
+Service.propTypes = {
+  handleModal: PropTypes.func.isRequired,
+};

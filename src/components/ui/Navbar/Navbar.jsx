@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 const Navbar = ({ handleModal }) => {
   const [toggle, setIsToggle] = useState(false);
@@ -141,3 +142,6 @@ const Navbar = ({ handleModal }) => {
 };
 
 export default Navbar;
+Navbar.propTypes = {
+  handleModal: PropTypes.func.isRequired,
+}

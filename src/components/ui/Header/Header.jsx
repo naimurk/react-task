@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
+import PropTypes from "prop-types";
 
 const Header = ({ isScrolled, handleModal }) => {
   const [toggle, setIsToggle] = useState(false);
@@ -182,3 +183,8 @@ const Header = ({ isScrolled, handleModal }) => {
 };
 
 export default Header;
+
+Header.propTypes = {
+  isScrolled: PropTypes.bool.isRequired,
+  handleModal: PropTypes.func.isRequired,
+};
